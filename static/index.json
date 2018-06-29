@@ -100,7 +100,22 @@
                    
                     
 
-         ] 
+            ],
+        "bgimgs":
+            [
+                {
+                    "id":"001",
+                    "imgurl":"http://img1.qunarzz.com/piao/fusion/1806/29/30427c0e0658b502.png",
+                    "title":"",
+                    "link":""
+                } ,{
+                    "id":"002",
+                    "imgurl":"http://img1.qunarzz.com/piao/fusion/1806/36/e89032c5f7714f02.png",
+                    "title":"",
+                    "link":""
+                } 
+
+            ]     
        
     }
 

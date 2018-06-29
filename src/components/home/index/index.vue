@@ -3,6 +3,8 @@
     <index-header></index-header>
     <banners :swipers = "swipers"></banners>
     <icon-swiper :icons = "icons"></icon-swiper>
+    <subject :bgimgs = "bgimgs"></subject>
+    <weeked></weeked>
     
 </div>
    
@@ -12,6 +14,9 @@
     import IndexHeader from './indexHeader.vue'
     import banners from './banners.vue'
     import IconSwiper from './iconSwiper.vue'
+    import subject from './subject.vue'
+    import weeked from './weeked.vue'
+    
 
     import axios from 'axios'
     export default{
@@ -19,12 +24,15 @@
         components:{
             IndexHeader,
             banners,
-            IconSwiper
+            IconSwiper,
+            subject,
+            weeked
         },
         data (){
             return {
                 swipers:[],
-                icons:[]
+                icons:[],
+                bgimgs:[]
             }
         },
         methods:{
@@ -39,6 +47,8 @@
                     if(res.data.swiper&&res.data.icons){
                         this.swipers = res.data.swiper
                         this.icons = res.data.icons
+                        this.bgimgs = res.data.bgimgs
+                        
                     }                    
                 }else {
                     this.getinfoerror()
