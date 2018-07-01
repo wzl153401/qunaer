@@ -4,8 +4,8 @@
     <banners :swipers = "swipers"></banners>
     <icon-swiper :icons = "icons"></icon-swiper>
     <subject :bgimgs = "bgimgs"></subject>
-    <weeked></weeked>
-    
+    <weeked :weekeds = "weekeds"></weeked>
+     
 </div>
    
 </template>
@@ -17,8 +17,10 @@
     import subject from './subject.vue'
     import weeked from './weeked.vue'
     
-
     import axios from 'axios'
+    import {mapState ,mapMutations }from 'vuex'
+
+
     export default{
         name:'index',
         components:{
@@ -32,10 +34,15 @@
             return {
                 swipers:[],
                 icons:[],
-                bgimgs:[]
+                bgimgs:[],
+                weekeds:[]
             }
         },
+        computed:{
+            ...mapState(['city'])
+        },
         methods:{
+            ...mapMutations(['changeCity']),
             getBaners(){
                      axios.get('/api/index.json')
                         .then(this.getinfosucc.bind(this))
@@ -44,14 +51,14 @@
             getinfosucc(res){
                  res = res.data;
                 if(res&&res.data){
-                    if(res.data.swiper&&res.data.icons){
+                    if(res.data.swiper&&res.data.icons&&res.data.bgimgs&&res.data.weekeds&&res.data.city){
                         this.swipers = res.data.swiper
                         this.icons = res.data.icons
                         this.bgimgs = res.data.bgimgs
-                        
+                        this.weekeds = res.data.weekeds
                     }                    
                 }else {
-                    this.getinfoerror()
+                    this.getinfoerror(123)
                 }  
             },
             getinfoerror(error){
@@ -61,10 +68,6 @@
         mounted (){
             this.getBaners()
         }
-           
-
-                 
-
     }
 </script>
 

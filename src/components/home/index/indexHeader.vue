@@ -7,7 +7,10 @@
                输入城市/景点游戏主题
            </div>
        </div>
-       <div class="city">{{city}}<em class="iconfont icon">&#xe601;</em></div>
+       <router-link to = /city>
+           <div class="city"  @click="changCity">{{city}}<em class="iconfont icon">&#xe601;</em></div>
+       </router-link>
+       
     </div>
 </template>
 <script>
