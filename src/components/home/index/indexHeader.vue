@@ -8,7 +8,7 @@
            </div>
        </div>
        <router-link to = /city>
-           <div class="city"  @click="changCity">{{city}}<em class="iconfont icon">&#xe601;</em></div>
+           <div class="city"  >{{city}}<em class="iconfont icon">&#xe601;</em></div>
        </router-link>
        
     </div>
